@@ -6,11 +6,17 @@ from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles 
 
 app = FastAPI()
+#disponibiliza rota para acesso a arquivos publicos
 app.mount("/web", StaticFiles(directory="public"), name="web")
 
+#utiliza o mount para acesso a pasta pública
 @app.get("/web")
 async def root():
     return FileResponse("public/index.html")
+
+@app.get("/dobrar/{numero}")
+def dobrar(numero: int):
+    return numero*2
 
 @app.get("/info")
 async def request_info(request: Request):
