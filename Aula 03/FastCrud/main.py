@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from models import Item
-from controllers import create_item, get_all_items, update_item, delete_item
+from controllers import create_item, get_all_items, update_item, delete_item, get_item
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
@@ -26,6 +26,10 @@ def add_item(item: Item):
 @app.get("/items/")
 def read_items():
     return get_all_items()
+
+@app.get("/items/{item_id}")
+def read_item(item_id: str):
+    return get_item(item_id)
 
 @app.put("/items/{item_id}")
 def update_item_details(item_id: str, item: Item):

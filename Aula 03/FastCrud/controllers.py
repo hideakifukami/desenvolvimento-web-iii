@@ -36,6 +36,13 @@ def create_item(item: Item) -> Item:
 def get_all_items() -> List[Item]:
     return _load_items()
 
+def get_item(item_id: str) -> Item:
+    items = _load_items()
+    for i, item in enumerate(items):
+        if item.id == item_id:
+            return item
+    return None
+
 def update_item(item_id: str, updated_item: Item) -> Optional[Item]:
     items = _load_items()
     for i, item in enumerate(items):
