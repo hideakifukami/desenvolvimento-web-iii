@@ -1,0 +1,3 @@
+{'cep': '03818-030', 'logradouro': "Rua Lagoa D'Anta", 'complemento': '', 'bairro': 'Parque Císper', 'localidade': 'São Paulo', 'uf': 'SP', 'ibge': '3550308', 'gia': '1004', 'ddd': '11', 'siafi': '7107'}
+{'cep': '03818-000', 'logradouro': 'Rua Pedra Lavrada', 'complemento': '', 'bairro': 'Parque Císper', 'localidade': 'São Paulo', 'uf': 'SP', 'ibge': '3550308', 'gia': '1004', 'ddd': '11', 'siafi': '7107'}
+{'cep': '03818-000', 'logradouro': 'Rua Pedra Lavrada', 'complemento': '', 'bairro': 'Parque Císper', 'localidade': 'São Paulo', 'uf': 'SP', 'ibge': '3550308', 'gia': '1004', 'ddd': '11', 'siafi': '7107'}
