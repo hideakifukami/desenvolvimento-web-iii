@@ -1,0 +1,20 @@
+{
+    "id": 1,
+    "nome": "Camiseta",
+    "preco": 49.90,
+    "quantidade": 10
+}
+
+{
+    "id": 2,
+    "nome": "Livro",
+    "preco": 25.00,
+    "quantidade": 5
+}
+
+{
+    "id": 3,
+    "nome": "Caneta",
+    "preco": 2.50,
+    "quantidade": 20
+}
