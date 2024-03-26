@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastAPI Example</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      form > * {
+        margin-bottom: 10px;
+      }
+      .form-container {
+        width: 40%;
+        margin: 0 auto;
+      }
+      .results-container {
+        margin-top: 30px;
+        padding: 10px;
+        border: 1px solid #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h1>FastAPI Example - Product Management</h1>
+      <form id="product-form">
+        <label for="id">ID:</label>
+        <input type="number" id="id" name="id" class="input-element" />
+        <br />
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" class="input-element" />
+        <br />
+        <label for="price">Price:</label>
+        <input type="number" id="price" name="price" step="0.01" class="input-element" />
+        <br />
+        <label for="quantity">Quantity:</label>
+        <input type="number" id="quantity" name="quantity" class="input-element" />
+        <br />
+        <button type="submit" id="submit-button">Submit</button>
+        <br />
+        <span id="error-message" style="color: red;"></span>
+      </form>
+    </div>
+    <div class="results-container" id="results-container"></div>
+
+    <script>
+      const form = document.getElementById("product-form");
+      const submitButton = document.getElementById("submit-button");
+      const idInput = document.getElementById("id");
+      const nameInput = document.getElementById("name");
+      const priceInput = document.getElementById("price");
+      const quantityInput = document.getElementById("quantity");
+      const errorMessage = document.getElementById("error-message");
+      const resultsContainer = document.getElementById("results-container");
+
+      async function fetchProducts() {
+        try {
+          const response = await fetch("http://127.0.0.1:8002/produtos");
+          const data = await response.json();
+          displayProducts(data);
+        } catch (error) {
+          console.error(error);
+          resultsContainer.innerHTML = "<p>Error fetching products.<p>";
+        }
+      }
+
+      function displayProducts(products) {
+        products.forEach((product) => {
+          const productElement = document.createElement("div");
+          productElement.innerHTML = `
+            <b>ID:</b> ${product.id}<br />
+            <b>Name:</b> ${product.nome}<br />
+            <b>Price:</b> ${product.preco}<br />
+            <b>Quantity:</b> ${product.quantidade}<br />
+          `;
+          resultsContainer.appendChild(productElement);
+        });
+      }
+
+      form.addEventListener("submit", async (event) => {
+        event.preventDefault();
+        errorMessage.innerHTML = "";
+        const product = {
+          id: parseInt(idInput.value),
+          nome: nameInput.value,
+          preco: parseFloat(priceInput.value),
+          quantidade: parseInt(quantityInput.value),
+        };
+        try {
+          const response = await fetch("http://127.0.0.1:8002/produtos", {
+            method: "POST",
+            body: JSON.stringify(product),
+            headers: {
+              "Content-Type": "application/json",
+            },
+          });
+          if (response.ok) {
+            nameInput.value = "";
+            priceInput.value = "";
+            quantityInput.value = "";
+            fetchProducts();
+            console.log("Product saved successfully.");
+          }
+        } catch (error) {
+          errorMessage.innerHTML = "Error saving product.";
+        }
+      });
+
+      fetchProducts();
+    </script>
