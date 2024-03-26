@@ -14,6 +14,7 @@ app.add_middleware(
     allow_methods=["*"],  
     allow_headers=["*"],  
 )
+
 # Modelo de Produto
 class Produto(BaseModel):
     id: int
@@ -24,7 +25,7 @@ class Produto(BaseModel):
 # Função de leitura dos produtos
 def ler_produtos_do_arquivo():
     try:
-        with open(os.path.join("cache", "produtos.txt", "r")) as file:
+        with open(os.path.join("cache", "produtos.txt"), "r") as file:
             produtos = [json.loads(line) for line in file]
     except FileNotFoundError:
         produtos = []
@@ -37,7 +38,7 @@ def salvar_produto_no_arquivo(novo_produto: Produto):
         if produto["id"] == novo_produto.id:
             raise HTTPException(status_code=400, detail=f"Já existe um produto com o ID {novo_produto.id}")
 
-    with open(os.path.join("cache", "produtos.txt", "a")) as file:
+    with open(os.path.join("cache", "produtos.txt"), "a") as file:
         file.write(json.dumps(novo_produto.model_dump()) + "\n")
 
 # GET listar produtos
