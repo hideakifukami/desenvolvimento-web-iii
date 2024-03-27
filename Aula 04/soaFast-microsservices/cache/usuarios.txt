@@ -1,3 +1,6 @@
 {"username": "hidezz", "password": "123"}
 {"username": "nelson", "password": "1234"}
 {"username": "pilotinho", "password": "123"}
+{"username": "robsonsfly", "password": "1234"}
+{"username": "henrymamaminha", "password": "123"}
+{"username": "gabriel", "password": "123"}

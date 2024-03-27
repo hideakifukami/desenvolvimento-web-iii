@@ -14,7 +14,7 @@ class ItemCarrinho(BaseModel):
 # Ler carrinho por usuario_id
 def ler_carrinho_do_arquivo(user_id: int):
     try:
-        with open(os.path.join("cache", f"carrinho_{user_id}.txt", "r")) as file:
+        with open(os.path.join("cache", f"carrinho_{user_id}.txt"), "r") as file:
             carrinho = [json.loads(line) for line in file]
     except FileNotFoundError:
         carrinho = []
@@ -25,7 +25,7 @@ def ler_carrinho_do_arquivo(user_id: int):
 def salvar_item_no_arquivo(user_id: int, item_carrinho: ItemCarrinho):
     itens = ler_carrinho_do_arquivo(user_id)
 
-    with open(os.path.join("cache", f"carrinho_{user_id}.txt", "a")) as file:
+    with open(os.path.join("cache", f"carrinho_{user_id}.txt"), "a") as file:
         file.write(json.dumps(item_carrinho.model_dump()) + "\n")
 
 # Rota GET de carrinho por usuario
