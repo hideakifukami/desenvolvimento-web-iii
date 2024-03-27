@@ -1,5 +1,6 @@
-{"id": 2, "nome": "Produto C", "preco": 15.99, "quantidade": 103}
-{"id": 1, "nome": "1", "preco": 1.0, "quantidade": 1}
-{"id": 3, "nome": "1", "preco": 1.0, "quantidade": 1}
-{"id": 4, "nome": "Nelson", "preco": 12.0, "quantidade": 12}
-{"id": 5, "nome": "Regis", "preco": 40.0, "quantidade": 12}
+{"id": 1, "nome": "T\u00eanis Mizuno", "preco": 599.99, "quantidade": 5}
+{"id": 2, "nome": "Nike Air Max", "preco": 899.99, "quantidade": 5}
+{"id": 3, "nome": "Adidas Run 3.0", "preco": 499.9, "quantidade": 10}
+{"id": 4, "nome": "Vans Cl\u00e1ssico", "preco": 499.9, "quantidade": 5}
+{"id": 5, "nome": "Corta Vento Nike", "preco": 299.9, "quantidade": 5}
+{"id": 6, "nome": "Camiseta Nike", "preco": 59.99, "quantidade": 5}

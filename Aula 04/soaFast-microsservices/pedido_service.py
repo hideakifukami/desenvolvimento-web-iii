@@ -3,8 +3,17 @@ from fastapi import FastAPI, HTTPException, Body
 import json
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
+from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  
+    allow_credentials=True,
+    allow_methods=["*"],  
+    allow_headers=["*"],  
+)
 
 class ItemPedido(BaseModel):
     produto_id: int
@@ -13,7 +22,7 @@ class ItemPedido(BaseModel):
 # Ler pedido por usuario_id
 def ler_pedido_do_arquivo(user_id: int):
     try:
-        with open(os.path.join("cache", f"pedido_{user_id}.txt", "r")) as file:
+        with open(os.path.join("cache", f"pedido_{user_id}.txt"), "r") as file:
             pedido = [json.loads(line) for line in file]
     except FileNotFoundError:
         pedido = []
@@ -24,7 +33,7 @@ def ler_pedido_do_arquivo(user_id: int):
 def salvar_item_no_arquivo(user_id: int, item_pedido: ItemPedido):
     itens = ler_pedido_do_arquivo(user_id)
 
-    with open(os.path.join("cache", f"pedido_{user_id}.txt", "a")) as file:
+    with open(os.path.join("cache", f"pedido_{user_id}.txt"), "a") as file:
         file.write(json.dumps(item_pedido.model_dump()) + "\n")
 
 # Rota GET de pedido por usuario
