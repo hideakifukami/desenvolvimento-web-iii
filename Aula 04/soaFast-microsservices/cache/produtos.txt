@@ -4,3 +4,8 @@
 {"id": 4, "nome": "Vans Cl\u00e1ssico", "preco": 499.9, "quantidade": 5}
 {"id": 5, "nome": "Corta Vento Nike", "preco": 299.9, "quantidade": 5}
 {"id": 6, "nome": "Camiseta Nike", "preco": 59.99, "quantidade": 5}
+{"id": 7, "nome": "Camiseta Nike", "preco": 29.99, "quantidade": 3}
+{"id": 8, "nome": "Camiseta Teste", "preco": 123.0, "quantidade": 12}
+{"id": 9, "nome": "123", "preco": 123.0, "quantidade": 123}
+{"id": 10, "nome": "123", "preco": 123.0, "quantidade": 123}
+{"id": 11, "nome": "Teste", "preco": 20.0, "quantidade": 1234}

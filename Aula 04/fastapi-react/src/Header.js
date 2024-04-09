@@ -11,16 +11,16 @@ const Header = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ml-auto">
             <li className="nav-item">
+              <a className="nav-link" href="/usuarios">Usuários</a>
+            </li>
+            <li className="nav-item">
+              <a className="nav-link" href="/pedidos">Pedidos</a>
+            </li>
+            <li className="nav-item">
               <a className="nav-link" href="/produtos">Produtos</a>
             </li>
             <li className="nav-item">
               <a className="nav-link" href="/carrinho">Carrinho</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/pedido">Pedido</a>
-            </li>
-            <li className="nav-item">
-              <a className="nav-link" href="/login">Login</a>
             </li>
           </ul>
         </div>

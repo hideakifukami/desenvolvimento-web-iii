@@ -1,0 +1,2 @@
+{"id":"78bec906-09b7-46f5-b5e4-fb86cbd19edd","name":"44444444444","description":"xxxx","price":77.0,"on_offer":false}
+{"id":"0f602d98-a17f-4fa7-a2b1-e5ef58c514cd","name":"Teste","description":"Teste","price":1122.0,"on_offer":false}
